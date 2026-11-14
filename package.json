@@ -1,0 +1,44 @@
+{
+  "name": "n8n-hubspot-multi-touch-utm-session-stitcher",
+  "version": "1.0.0",
+  "description": "First-party multi-touch UTM attribution engine for n8n and Node.js: normalizes conversion webhooks, preserves immutable First Touch, updates Last Touch, and keeps a deduplicated touchpoint history on HubSpot Contacts. DRY_RUN and SANDBOX_MODE are on by default.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --test test/workflow.test.js",
+    "dry-run": "node src/index.js --file test/fixtures/conversion-events-batch.json",
+    "start": "node src/index.js --serve",
+    "build:workflow": "node scripts/build-workflow.js",
+    "check:workflow": "node scripts/build-workflow.js --check"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "files": [
+    "src/",
+    "scripts/",
+    "workflow.json",
+    "README.md",
+    "DISCLAIMER.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "keywords": [
+    "n8n",
+    "hubspot",
+    "utm",
+    "attribution",
+    "multi-touch",
+    "first-touch",
+    "last-touch",
+    "revops",
+    "webhook"
+  ],
+  "author": "DH Robin <robin@dhrobinsystems.com> (https://dhrobinsystems.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhrobinsystems/n8n-hubspot-multi-touch-utm-session-stitcher.git"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
