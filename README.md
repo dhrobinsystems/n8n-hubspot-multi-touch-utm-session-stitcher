@@ -39,6 +39,8 @@ This engine fixes that with three rules I can explain to anyone in one sentence 
 
 ## Architecture
 
+![n8n Multi-Touch UTM Session Stitcher Workflow](assets/n8n-workflow-overview.png)
+
 ```mermaid
 flowchart TD
     A["Inbound conversion webhook<br/>Web form · Calendly · Chili Piper · Product signup"] --> B["Webhook auth<br/>n8n Header Auth / HMAC-SHA256 in Node"]
