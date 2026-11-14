@@ -1,0 +1,182 @@
+{
+  "_meta": {
+    "description": "Synthetic conversion webhooks for unit tests and dry runs. Every email, URL, ID, and click ID is fabricated and uses RFC 2606 domains only.",
+    "note": "Events are in delivery order. alex.rivera@example.com converts four times so First-Touch immutability, Last-Touch updates, direct-traffic protection, and retry dedupe are all exercised on one contact."
+  },
+  "events": [
+    {
+      "fixture_id": "form-submit-paid-social-aliasing",
+      "payload": {
+        "provider": "web_form",
+        "form_id": "1001",
+        "form_name": "Demo Request",
+        "submission_id": "SUB-1001",
+        "submitted_at": "2026-10-01T09:15:00.000Z",
+        "fields": {
+          "Email": "  Alex.Rivera@Example.com ",
+          "firstname": "Alex"
+        },
+        "context": {
+          "page_url": "https://www.example.com/demo?utm_source=ignored-because-explicit&ref=nav",
+          "referrer": "https://l.facebook.com/",
+          "utm": {
+            "utm_source": " FB ",
+            "utm_medium": "Paid-Social",
+            "utm_campaign": "  Spring_Launch_2026 ",
+            "utm_content": "Carousel-A"
+          }
+        }
+      }
+    },
+    {
+      "fixture_id": "calendly-booking-linkedin-alias",
+      "payload": {
+        "event": "invitee.created",
+        "created_at": "2026-10-05T14:30:00.000Z",
+        "payload": {
+          "email": "alex.rivera@example.com",
+          "name": "Alex Rivera",
+          "uri": "https://api.example.com/scheduled_events/EVT-1001/invitees/INV-2002",
+          "created_at": "2026-10-05T14:30:00.000Z",
+          "scheduled_event": {
+            "name": "30-Minute Discovery Call",
+            "start_time": "2026-10-08T15:00:00.000Z"
+          },
+          "tracking": {
+            "utm_source": "LinkedIn.com",
+            "utm_medium": "paidsocial",
+            "utm_campaign": "Q4-ABM-Retarget",
+            "utm_term": null,
+            "utm_content": null
+          }
+        }
+      }
+    },
+    {
+      "fixture_id": "form-submit-direct-within-window",
+      "payload": {
+        "provider": "web_form",
+        "form_id": "1002",
+        "form_name": "Pricing Question",
+        "submission_id": "SUB-1002",
+        "submitted_at": "2026-10-12T11:00:00.000Z",
+        "fields": { "email": "alex.rivera@example.com" },
+        "context": {
+          "page_url": "https://www.example.com/pricing",
+          "referrer": "https://www.example.com/blog/attribution-basics"
+        }
+      }
+    },
+    {
+      "fixture_id": "form-submit-duplicate-retry",
+      "payload": {
+        "provider": "web_form",
+        "form_id": "1001",
+        "form_name": "Demo Request",
+        "submission_id": "SUB-1001",
+        "submitted_at": "2026-10-01T09:15:00.000Z",
+        "fields": {
+          "Email": "  Alex.Rivera@Example.com ",
+          "firstname": "Alex"
+        },
+        "context": {
+          "page_url": "https://www.example.com/demo?utm_source=ignored-because-explicit&ref=nav",
+          "referrer": "https://l.facebook.com/",
+          "utm": {
+            "utm_source": " FB ",
+            "utm_medium": "Paid-Social",
+            "utm_campaign": "  Spring_Launch_2026 ",
+            "utm_content": "Carousel-A"
+          }
+        }
+      }
+    },
+    {
+      "fixture_id": "chili-piper-gclid-only",
+      "payload": {
+        "provider": "chili_piper",
+        "event": "meeting.booked",
+        "meeting_id": "CP-3003",
+        "booked_at": "2026-10-06T16:45:00.000Z",
+        "router_name": "Inbound Demo Router",
+        "guest": { "email": "jordan.lee@example.org" },
+        "meeting": { "type_name": "Product Demo (Chili Piper)" },
+        "page_url": "https://www.example.com/pricing?gclid=TEST-GCLID-1001&utm_campaign=Brand_Search",
+        "referrer": "https://www.google.com/"
+      }
+    },
+    {
+      "fixture_id": "product-signup-linkedin-click-id",
+      "payload": {
+        "type": "user.signup",
+        "id": "evt_signup_4004",
+        "created_at": "2026-10-07T08:05:00.000Z",
+        "data": {
+          "plan": "Starter",
+          "user": { "email": "sam.patel@example.net" },
+          "attribution": {
+            "li_fat_id": "TEST-LIFATID-2002",
+            "landing_page_url": "https://app.example.com/signup?li_fat_id=TEST-LIFATID-2002",
+            "referrer_url": "https://www.linkedin.com/"
+          }
+        }
+      }
+    },
+    {
+      "fixture_id": "product-signup-organic-referrer",
+      "payload": {
+        "type": "user.signup",
+        "id": "evt_signup_5005",
+        "created_at": 1791360000,
+        "data": {
+          "plan": "Free",
+          "user": { "email": "casey.nguyen@example.net" },
+          "attribution": {
+            "landing_page_url": "https://www.example.com/",
+            "referrer_url": "https://www.google.co.uk/"
+          }
+        }
+      }
+    },
+    {
+      "fixture_id": "canonical-email-newsletter-aliasing",
+      "payload": {
+        "email": "jordan.lee@example.org",
+        "event_type": "Form Submit",
+        "converting_asset": "Newsletter CTA",
+        "timestamp": "2026-10-20T10:00:00Z",
+        "utm_source": "Newsletter",
+        "utm_medium": "E-Mail",
+        "utm_campaign": "October-Digest",
+        "landing_page_url": "https://www.example.com/resources/guide",
+        "referrer_url": null
+      }
+    },
+    {
+      "fixture_id": "form-submit-paid-search-after-window",
+      "payload": {
+        "provider": "web_form",
+        "form_id": "1003",
+        "form_name": "Contact Sales",
+        "submission_id": "SUB-1003",
+        "submitted_at": "2026-11-02T13:20:00.000Z",
+        "fields": { "email": "alex.rivera@example.com" },
+        "context": {
+          "page_url": "https://www.example.com/contact?utm_source=Google&utm_medium=PPC&utm_campaign=Competitor-Terms&utm_term=Attribution%20Software",
+          "referrer": "https://www.google.com/"
+        }
+      }
+    },
+    {
+      "fixture_id": "invalid-email-rejected",
+      "payload": {
+        "provider": "web_form",
+        "form_id": "1004",
+        "submission_id": "SUB-1004",
+        "submitted_at": "2026-10-09T12:00:00.000Z",
+        "fields": { "email": "not-an-email" },
+        "context": { "page_url": "https://www.example.com/demo" }
+      }
+    }
+  ]
+}
